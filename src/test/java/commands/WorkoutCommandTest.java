@@ -168,48 +168,4 @@ public class WorkoutCommandTest {
         assertEquals(true, isSameDetails);
     }
 
-    @Test
-    public void workoutCommand_updateWorkout_onePlanDetailsUpdated() throws InvalidWorkoutException,
-            InvalidExerciseException, InvalidPlanException, InvalidCommandException {
-        ExerciseList el = new ExerciseList();
-        el.addExerciseToList("push up");
-        el.addExerciseToList("pull up");
-        el.addExerciseToList("sit up");
-
-        WorkoutList wl = new WorkoutList(el);
-        wl.createAndAddWorkout("push up /reps 15");
-        wl.createAndAddWorkout("pull up /reps 15");
-        wl.createAndAddWorkout("sit up /reps 10");
-
-        PlanList pl = new PlanList(wl);
-        pl.createAndAddPlan("Plan 1 /workouts 1, 2, 3");
-
-        FileManager fm = new FileManager(pl);
-
-        String userInput = "workout /update 3 20";
-        String userAction = "/update";
-        String userArguments = "3 20";
-
-        ArrayList<Workout> oldListOfWorkouts = pl.getPlanFromIndexNum(1).getWorkoutsInPlanList();
-        ArrayList<String> oldWorkoutDetails = new ArrayList<String>();
-        for (int i = 0; i < oldListOfWorkouts.size(); i++) {
-            oldWorkoutDetails.add(oldListOfWorkouts.get(i).toString());
-        }
-
-        WorkoutCommand commandTest = new WorkoutCommand(userInput, fm, wl, pl, userAction, userArguments);
-        commandTest.execute();
-        ArrayList<Workout> newWorkoutDetails = pl.getPlanFromIndexNum(1).getWorkoutsInPlanList();
-
-
-        boolean isSameDetails = true;
-        for (int i = 0; i < oldWorkoutDetails.size(); i++) {
-            if (!oldWorkoutDetails.get(i).equals(newWorkoutDetails.get(i).toString())) {
-                isSameDetails = false;
-                break;
-            }
-        }
-
-        assertEquals(false, isSameDetails);
-    }
-
 }
