@@ -62,7 +62,7 @@ public class UI {
     // Workout-related messages
     public static final String NEW_WORKOUT_CREATED_MESSAGE = "Alright, the following workout has been created:";
     public static final String DELETED_WORKOUT_MESSAGE = "Alright, the following workout has been removed:";
-    public static final String UPDATED_WORKOUT_MESSAGE = "Alright, the following workout has been updated:";
+    public static final String UPDATED_WORKOUT_MESSAGE = "Alright, the following workout has been updated to:";
     //Plan-related Message
     public static final String NEW_PLAN_CREATED_MESSAGE = "Alright, the following plan has been created:";
     public static final String DELETED_PLAN_MESSAGE = "Alright, the following plan has been removed:";

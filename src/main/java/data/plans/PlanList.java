@@ -469,8 +469,7 @@ public class PlanList {
         ArrayList<Integer> planIndexWithDeletedWorkout = findPlanContainsTargetWorkout(deletedWorkoutDetail);
         if (planIndexWithDeletedWorkout.size() <= 0) {
             return;
-        }
-        if (planIndexWithDeletedWorkout.size() > 0) {
+        } else {
             System.out.println(deletedWorkoutDetail + " is found in:\n");
         }
 
@@ -494,9 +493,7 @@ public class PlanList {
 
         if (planWithUpdatedWorkout.size() <= 0) {
             return;
-        }
-
-        if (planWithUpdatedWorkout.size() > 0) {
+        } else {
             System.out.println(workoutToCheck + " is found in:\n");
         }
 
