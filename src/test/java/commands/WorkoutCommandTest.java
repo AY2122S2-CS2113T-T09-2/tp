@@ -63,37 +63,6 @@ public class WorkoutCommandTest {
     }
 
     @Test
-    public void workoutCommand_deleteWorkout_noPlanDeleted() throws InvalidWorkoutException,
-            InvalidExerciseException, InvalidPlanException, InvalidCommandException {
-        ExerciseList el = new ExerciseList();
-        el.addExerciseToList("push up");
-        el.addExerciseToList("sit up");
-
-        WorkoutList wl = new WorkoutList(el);
-        wl.createAndAddWorkout("push up /reps 10");
-        wl.createAndAddWorkout("push up /reps 15");
-        wl.createAndAddWorkout("sit up /reps 10");
-
-        PlanList pl = new PlanList(wl);
-        pl.createAndAddPlan("Plan 1 /workouts 1,1,2,2");
-        pl.createAndAddPlan("Plan 2 /workouts 1, 1, 1");
-
-        FileManager fm = new FileManager(pl);
-
-        String userInput = "workout /delete 3";
-        String userAction = "/delete";
-        String userArguments = "3";
-
-        int totalPlanNumberBeforeDelete = pl.getPlansDisplayList().size();
-
-        WorkoutCommand commandTest = new WorkoutCommand(userInput, fm, wl, pl, userAction, userArguments);
-        commandTest.execute();
-        int totalPlanNumberAfterDelete = pl.getPlansDisplayList().size();
-
-        assertEquals(totalPlanNumberBeforeDelete, totalPlanNumberAfterDelete);
-    }
-
-    @Test
     public void workoutCommand_deleteWorkout_deleteOnePlan() throws InvalidWorkoutException,
             InvalidExerciseException, InvalidPlanException, InvalidCommandException {
         ExerciseList el = new ExerciseList();
